@@ -44,13 +44,14 @@
                     return sprintf('#%06X', mt_rand(0, 0xFFFFFF));
                 }
 
-                function getUniqueColor(&$colors) {
+                function getUniqueColor(array &$colors): string
+                {
                     $color = rand_color();
                     if (!in_array($color, $colors)) {
                         $colors[] = $color;
                         return $color;
                     } else {
-                        getUniqueColor($colors);
+                        return getUniqueColor($colors);
                     }
                 }
                 $usedColors = [];
